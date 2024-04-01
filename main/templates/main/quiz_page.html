@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz_app</title>
+</head>
+<body>
+    <h1>score: {{ score }}</h1>
+    <form action="{% url 'quiz-page' %}" method="post">
+        {% if q %}
+            <h2>question:</h2>
+            <h1>{{ q }}</h1>
+            {% for answer in answers %}
+                <h2><input type="submit" value="{{ answer }}" name="user_answer"></h2>
+            {% endfor %}
+        {% else %}
+        <h1>{{ error }}</h1>
+        {% endif %}
+    </form>
+</body>
+</html>
